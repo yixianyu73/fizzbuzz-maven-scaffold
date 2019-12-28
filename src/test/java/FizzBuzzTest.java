@@ -26,6 +26,11 @@ public class FizzBuzzTest {
 
     @Test
     public void fizzBuzzInputZero() {
+        assertEquals("0", FizzBuzz.fizzBuzz(0, 0, 5));
+    }
+
+    @Test
+    public void fizzBuzzFirstNumZero() {
         assertEquals("Error", FizzBuzz.fizzBuzz(1, 0, 5));
     }
 }
