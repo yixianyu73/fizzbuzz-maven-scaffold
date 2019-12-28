@@ -6,6 +6,9 @@ public class Point {
         this.x = x;
         this.y = y;
         this.direction = direction;
+        if(x * y < 0) {
+            throw new IllegalArgumentException("error point");
+        }
     }
      public int getX() {
         return this.x;

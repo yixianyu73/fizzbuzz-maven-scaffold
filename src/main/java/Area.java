@@ -8,7 +8,7 @@ public class Area {
     }
 
     public boolean contains(Point point) {
-        return point.getX() <= this.x && point.getY() <= this.y;
+        return point.getX() <= this.x && point.getX() >= 0 && point.getY() <= this.y && point.getY() >= 0;
     }
 
 }
