@@ -32,18 +32,18 @@ public class FizzBuzz {
         return isFizz(inputNum, firstNum) && isBuzz(inputNum, secondNum);
     }
 
-    private  static boolean isFizz(int inputNum, int firstNum){
+    private  static boolean isFizz(int inputNum, int firstNum) {
         return count(inputNum, firstNum);
     }
 
-    private static boolean isBuzz(int inputNum, int secondNum){
+    private static boolean isBuzz(int inputNum, int secondNum) {
         return count(inputNum, secondNum);
     }
 
-    private static boolean count(int inputNum, int num){
+    private static boolean count(int inputNum, int num) {
         if (num == 0) {
             return false;
-        }else {
+        } else {
             return (inputNum % num == 0 || String.valueOf(inputNum).contains(String.valueOf(num)));
         }
     }
