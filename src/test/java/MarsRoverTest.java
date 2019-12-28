@@ -193,4 +193,30 @@ public class MarsRoverTest {
         rover.moveBack(0);
     }
 
+    @Test
+    public void MarsRoverMission() {
+        Area area = new Area(10, 10);
+        Point point = new Point(5, 5, Direction.EAST);
+        Rover rover = new Rover();
+        rover.land(area, point);
+        RoverController roverController = new RoverController(rover);
+        String mission = "-3,3,L,R,l,r";
+        roverController.excute(mission);
+        assertEquals(rover.getPoint().getX(), 5);
+        assertEquals(rover.getPoint().getY(), 5);
+        assertEquals(rover.getPoint().getDirection(), Direction.EAST);
+    }
+
+    @Test
+    public void MarsRoverMissionError() {
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("mission error");
+        Area area = new Area(10, 10);
+        Point point = new Point(5, 5, Direction.EAST);
+        Rover rover = new Rover();
+        rover.land(area, point);
+        RoverController roverController = new RoverController(rover);
+        String mission = "-3,3,L,R,x";
+        roverController.excute(mission);
+    }
 }
