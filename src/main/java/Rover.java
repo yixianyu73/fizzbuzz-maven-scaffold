@@ -50,19 +50,22 @@ public class Rover {
         }
     }
 
-    public void moveForward() {
+    public void moveForward(int num) {
+        if (num <= 0) {
+            throw new IllegalArgumentException("move error");
+        }
         switch (point.getDirection()) {
             case SOUTH:
-                this.point.setY(point.getY() - 1);
+                this.point.setY(point.getY() - num);
                 break;
             case NORTH:
-                this.point.setY(point.getY() + 1);
+                this.point.setY(point.getY() + num);
                 break;
             case EAST:
-                this.point.setX(point.getX() + 1);
+                this.point.setX(point.getX() + num);
                 break;
             case WEST:
-                this.point.setX(point.getX() - 1);
+                this.point.setX(point.getX() - num);
                 break;
             default:
         }
@@ -72,19 +75,22 @@ public class Rover {
         }
     }
 
-    public void moveBack() {
+    public void moveBack(int num) {
+        if (num <= 0) {
+            throw new IllegalArgumentException("move error");
+        }
         switch (point.getDirection()) {
             case SOUTH:
-                this.point.setY(point.getY() + 1);
+                this.point.setY(point.getY() + num);
                 break;
             case NORTH:
-                this.point.setY(point.getY() - 1);
+                this.point.setY(point.getY() - num);
                 break;
             case EAST:
-                this.point.setX(point.getX() - 1);
+                this.point.setX(point.getX() - num);
                 break;
             case WEST:
-                this.point.setX(point.getX() + 1);
+                this.point.setX(point.getX() + num);
                 break;
             default:
         }

@@ -101,22 +101,22 @@ public class MarsRoverTest {
         Point point = new Point(5, 5, Direction.EAST);
         Rover rover = new Rover();
         rover.land(area, point);
-        rover.moveForward();
+        rover.moveForward(1);
         assertEquals(rover.getPoint().getX(), 6);
         assertEquals(rover.getPoint().getY(), 5);
         assertEquals(rover.getPoint().getDirection(), Direction.EAST);
         rover.turnRight();
-        rover.moveForward();
+        rover.moveForward(1);
         assertEquals(rover.getPoint().getX(), 6);
         assertEquals(rover.getPoint().getY(), 4);
         assertEquals(rover.getPoint().getDirection(), Direction.SOUTH);
         rover.turnRight();
-        rover.moveForward();
+        rover.moveForward(1);
         assertEquals(rover.getPoint().getX(), 5);
         assertEquals(rover.getPoint().getY(), 4);
         assertEquals(rover.getPoint().getDirection(), Direction.WEST);
         rover.turnRight();
-        rover.moveForward();
+        rover.moveForward(1);
         assertEquals(rover.getPoint().getX(), 5);
         assertEquals(rover.getPoint().getY(), 5);
         assertEquals(rover.getPoint().getDirection(), Direction.NORTH);
@@ -128,22 +128,22 @@ public class MarsRoverTest {
         Point point = new Point(5, 5, Direction.EAST);
         Rover rover = new Rover();
         rover.land(area, point);
-        rover.moveBack();
+        rover.moveBack(1);
         assertEquals(rover.getPoint().getX(), 4);
         assertEquals(rover.getPoint().getY(), 5);
         assertEquals(rover.getPoint().getDirection(), Direction.EAST);
         rover.turnRight();
-        rover.moveBack();
+        rover.moveBack(1);
         assertEquals(rover.getPoint().getX(), 4);
         assertEquals(rover.getPoint().getY(), 6);
         assertEquals(rover.getPoint().getDirection(), Direction.SOUTH);
         rover.turnRight();
-        rover.moveBack();
+        rover.moveBack(1);
         assertEquals(rover.getPoint().getX(), 5);
         assertEquals(rover.getPoint().getY(), 6);
         assertEquals(rover.getPoint().getDirection(), Direction.WEST);
         rover.turnRight();
-        rover.moveBack();
+        rover.moveBack(1);
         assertEquals(rover.getPoint().getX(), 5);
         assertEquals(rover.getPoint().getY(), 5);
         assertEquals(rover.getPoint().getDirection(), Direction.NORTH);
@@ -157,7 +157,7 @@ public class MarsRoverTest {
         Point point = new Point(10, 5, Direction.EAST);
         Rover rover = new Rover();
         rover.land(area, point);
-        rover.moveForward();
+        rover.moveForward(1);
     }
 
     @Test
@@ -168,8 +168,29 @@ public class MarsRoverTest {
         Point point = new Point(10, 10, Direction.SOUTH);
         Rover rover = new Rover();
         rover.land(area, point);
-        rover.moveBack();
+        rover.moveBack(1);
     }
 
+    @Test
+    public void MarsRoverMoveBackError() {
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("move error");
+        Area area = new Area(10, 10);
+        Point point = new Point(10, 10, Direction.SOUTH);
+        Rover rover = new Rover();
+        rover.land(area, point);
+        rover.moveBack(0);
+    }
+
+    @Test
+    public void MarsRoverMoveForwardError() {
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("move error");
+        Area area = new Area(10, 10);
+        Point point = new Point(10, 10, Direction.SOUTH);
+        Rover rover = new Rover();
+        rover.land(area, point);
+        rover.moveBack(0);
+    }
 
 }
