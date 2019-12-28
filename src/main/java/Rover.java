@@ -5,7 +5,7 @@ public class Rover {
     public void land(Area area, Point point) {
         this.point = point;
         this.area = area;
-        if(!this.area.contains(point)) {
+        if (!this.area.contains(point)) {
             throw new IllegalArgumentException("out of area");
         }
     }
