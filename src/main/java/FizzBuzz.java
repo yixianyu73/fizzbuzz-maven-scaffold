@@ -41,7 +41,7 @@ public class FizzBuzz {
         return result;
     }
 
-    private static boolean isFizzBuzzWhizz(int inputNum, int firstNum, int secondNum, int thirtyNum ) {
+    private static boolean isFizzBuzzWhizz(int inputNum, int firstNum, int secondNum, int thirtyNum) {
         return isFizz(inputNum, firstNum) && isBuzz(inputNum, secondNum) && isWhizz(inputNum, thirtyNum);
     }
 
