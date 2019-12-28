@@ -23,4 +23,9 @@ public class FizzBuzzTest {
     public void fizzBuzzReturnNormal() {
         assertEquals("1", FizzBuzz.fizzBuzz(1, 3, 5));
     }
+
+    @Test
+    public void fizzBuzzInputZero() {
+        assertEquals("Error", FizzBuzz.fizzBuzz(1, 0, 5));
+    }
 }
