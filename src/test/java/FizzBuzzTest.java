@@ -26,7 +26,7 @@ public class FizzBuzzTest {
 
     @Test
     public void fizzBuzzInputZero() {
-        assertEquals("0", FizzBuzz.fizzBuzz(0, 0, 5));
+        assertEquals("0", FizzBuzz.fizzBuzz(0, 1, 5));
     }
 
     @Test

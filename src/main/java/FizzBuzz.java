@@ -2,8 +2,17 @@ public class FizzBuzz {
     private static final String FIZZBUZZ = "FizzBuzz";
     private static final String FIZZ = "Fizz";
     private static final String BUZZ = "Buzz";
+    private static final String ERROR = "Error";
 
     public static String fizzBuzz(int inputNum, int firstNum, int secondNum) {
+
+        if(inputNum <= 0){
+            return String.valueOf(inputNum);
+        }
+
+        if(firstNum <=0 || secondNum <=0){
+            return ERROR;
+        }
 
         if (isFizzBuzz(inputNum, firstNum, secondNum)) {
             return FIZZBUZZ;
@@ -30,7 +39,11 @@ public class FizzBuzz {
     }
 
     private static boolean count(int inputNum, int num){
-        return (inputNum % num == 0 || String.valueOf(inputNum).contains(String.valueOf(num)));
+        if(num == 0){
+            return false;
+        }else {
+            return (inputNum % num == 0 || String.valueOf(inputNum).contains(String.valueOf(num)));
+        }
     }
 
 }
